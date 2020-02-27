@@ -20,7 +20,7 @@ class BinarySearchTree:
                 self.left = BinarySearchTree(value)
         # If the new value is greater than the current value, then we insert the new value on the right
         # if this value is less than the current value, then we use recursion to go back to the check to insert on the left
-        elif value > self.value:
+        elif value >= self.value:
             if self.right is not None:
                 self.right.insert(value)
             else:
@@ -65,17 +65,39 @@ class BinarySearchTree:
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
-
     def in_order_print(self, node):
-        pass
+        # going through left then right node values
+        # printing values low to high
+        if node.left:
+            node.left.in_order_print(node.left)
+        print(node.value)
+        if node.right:
+            node.right.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+    # BFT
+    # initialize a queue
+    # push root to queue
+    # while stack is not empty
+    # pop top item out of queue into temp
+    # Print/Return what you're doing (low to high, given node, etc.)
+    # If temp has right, put into queue
+    # If temp has left, put into queue
+
     def bft_print(self, node):
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
+    # DFT
+    # Initialize a stack
+    # Push root to stack
+    # while stack is not empty
+    # pop top item out of stack into temp variable
+    # Print/Return what you're doing (low to high, given node, etc.)
+    # If temp has right, put it into stack
+    # If temp has left, put into stack
     def dft_print(self, node):
         pass
 
