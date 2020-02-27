@@ -1,3 +1,7 @@
+from dll_queue import Queue
+from dll_stack import Stack
+
+
 class BinarySearchTree:
     def __init__(self, value):
         self.value = value
@@ -81,12 +85,20 @@ class BinarySearchTree:
     # push root to queue
     # while stack is not empty
     # pop top item out of queue into temp
-    # Print/Return what you're doing (low to high, given node, etc.)
+    # Print/Return what you're doing (low to high, given node ==> VALUE)
     # If temp has right, put into queue
     # If temp has left, put into queue
 
     def bft_print(self, node):
-        pass
+        initialize_q = Queue()
+        initialize_q.enqueue(node)
+        while initialize_q.len() != 0:
+            temp = initialize_q.dequeue()
+            print(temp.value)
+            if temp.right:
+                initialize_q.enqueue(temp.right)
+            if temp.left:
+                initialize_q.enqueue(temp.left)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
@@ -95,11 +107,20 @@ class BinarySearchTree:
     # Push root to stack
     # while stack is not empty
     # pop top item out of stack into temp variable
-    # Print/Return what you're doing (low to high, given node, etc.)
+    # Print/Return what you're doing (low to high, given node ==> VALUE)
     # If temp has right, put it into stack
     # If temp has left, put into stack
+
     def dft_print(self, node):
-        pass
+        initialize_s = Stack()
+        initialize_s.push(node)
+        while initialize_s.len() != 0:
+            temp = initialize_s.pop()
+            print(temp.value)
+            if temp.right:
+                initialize_s.push(temp.right)
+            if temp.left:
+                initialize_s.push(temp.left)
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
